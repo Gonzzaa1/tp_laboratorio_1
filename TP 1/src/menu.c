@@ -329,7 +329,7 @@ int opcion4(int flagCalculos,int km, float precioAero, float precioLatam,float a
     else
     {
         system("cls");
-        printf("\nNo se realizaron los calculos todavia");
+        printf("\nNo se realizaron los calculos todavia\n\n");
         retorno = 0;
         getch();
     }
