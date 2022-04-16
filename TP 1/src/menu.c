@@ -40,6 +40,8 @@ int opcion1(int* pKm, int* pFlag)
 {
     int kilometros;
     int respuesta;
+    char carga;
+    int noNum;
     int retorno = 0;
 
     if(pKm != NULL && pFlag != NULL)
@@ -48,29 +50,52 @@ int opcion1(int* pKm, int* pFlag)
         {
             system("cls");
             printf("Ingrese los kilometros del viaje: ");
-            scanf("%d", &kilometros);
+            noNum = scanf("%d", &kilometros);
 
-            while(kilometros < 1)
+            while(kilometros < 1 || noNum == 0)
             {
-                printf("Datos invalidos....\nPor favor Reingrese los kilometros del viaje: ");
-                scanf("%d", &kilometros);
+            	fflush(stdin);
+                printf("\nDatos invalidos....\nPor favor Reingrese los kilometros del viaje: ");
+                noNum = scanf("%d", &kilometros);
+
             }
 
+            system("cls");
+            printf("Se ingresaron: %d Km\n\n\n", kilometros);
             respuesta = confimar();
 
         }
         while(respuesta != 's');
 
-        system("cls");
 
-        printf("Kilometros cargados\n"
-               "\nSe ingresaron: %d Km", kilometros);
 
-        *pKm = kilometros;
-        *pFlag = 1;
-        getch();
+        if(*pFlag == 1)
+        {
+        	system("cls");
+        	printf("Tus kilometros : %d km\n\n",*pKm);
+        	carga = sobrescribir();
+        	if(carga == 's')
+        	{
+        		system("cls");
+
+				printf("Kilometros cargados: "
+					   "\n\nSe ingresaron: %d Km", kilometros);
+				*pKm = kilometros;
+        	}
+        }
+        else
+        {
+		    system("cls");
+
+			printf("Kilometros cargados\n"
+				   "\n\nSe ingresaron: %d Km", kilometros);
+			*pKm = kilometros;
+			*pFlag = 1;
+        }
+
         retorno = 1;
     }
+	getch();
     return retorno;
 }
 int opcion2(float* pPrecioAero, float* pPrecioLatam, int* pFlag, int* pFlag2)
@@ -79,6 +104,7 @@ int opcion2(float* pPrecioAero, float* pPrecioLatam, int* pFlag, int* pFlag2)
     float precioAerolineas;
     float precioLatam;
     char carga;
+    int noNum;
     int linea;
     int retorno = 0;
 
@@ -92,14 +118,17 @@ int opcion2(float* pPrecioAero, float* pPrecioLatam, int* pFlag, int* pFlag2)
             {
                 system("cls");
                 printf("Ingrese el valor del vuelo de Aerolineas: ");
-                scanf("%f", &precioAerolineas);
+                noNum = scanf("%f", &precioAerolineas);
 
-                while(precioAerolineas < 1)
+                while(precioAerolineas < 1 || noNum == 0)
                 {
+                	fflush(stdin);
                     printf("\nDato Invalido....\n\nPor favor reingrese el valor del vuelo de Aerolineas: ");
-                    scanf("%f", &precioAerolineas);
+                    noNum = scanf("%f", &precioAerolineas);
                 }
 
+                system("cls");
+                printf("Monto a cargar : $%.2f\n\n\n", precioAerolineas);
                 respuesta = confimar();
 
             }
@@ -108,6 +137,7 @@ int opcion2(float* pPrecioAero, float* pPrecioLatam, int* pFlag, int* pFlag2)
             if(*pFlag == 1)
             {
                 system("cls");
+                printf("Tu precio actual de Aerolineas es : $%.2f\n\n", *pPrecioAero);
                 carga = sobrescribir();
 
                 if(carga == 's')
@@ -137,14 +167,17 @@ int opcion2(float* pPrecioAero, float* pPrecioLatam, int* pFlag, int* pFlag2)
             {
                 system("cls");
                 printf("Ingrese el valor del vuelo de Latam: ");
-                scanf("%f", &precioLatam);
+                noNum = scanf("%f", &precioLatam);
 
-                while(precioLatam < 1)
+                while(precioLatam < 1 || noNum == 0)
                 {
+                	fflush(stdin);
                     printf("\nDato Invalido....\n\nPor favor reingrese el valor del vuelo de Latam: ");
-                    scanf("%f", &precioLatam);
+                    noNum = scanf("%f", &precioLatam);
                 }
 
+                system("cls");
+				printf("Monto a cargar : $%.2f\n\n\n", precioLatam);
                 respuesta = confimar();
 
             }
@@ -153,6 +186,7 @@ int opcion2(float* pPrecioAero, float* pPrecioLatam, int* pFlag, int* pFlag2)
             if(*pFlag2 == 1)
             {
                 system("cls");
+                printf("Tu precio actual de Latam es : $%.2f\n\n", *pPrecioLatam);
                 carga = sobrescribir();
 
                 if(carga == 's')
@@ -181,7 +215,8 @@ int opcion2(float* pPrecioAero, float* pPrecioLatam, int* pFlag, int* pFlag2)
 
     return retorno;
 }
-int opcion3(int *pFlag,int flagKm,int flagLatam, int flagAero,int km, float precioAero, float precioLatam,float* pAeroTD,float* pAeroTC,float* pAeroBTC,float* pAeroUni,float* pLatamTD,float* pLatamTC,float* pLatamBTC,float* pLatamUni,float* pDif)
+int opcion3(int *pFlag,int flagKm,int flagLatam, int flagAero,int km, float precioAero, float precioLatam,float* pAeroTD,
+			float* pAeroTC,float* pAeroBTC,float* pAeroUni,float* pLatamTD,float* pLatamTC,float* pLatamBTC,float* pLatamUni,float* pDif)
 {
     float precioAeroTD;
     float precioAeroTC;
@@ -286,7 +321,8 @@ int opcion3(int *pFlag,int flagKm,int flagLatam, int flagAero,int km, float prec
 
     return retorno;
 }
-int opcion4(int flagCalculos,int km, float precioAero, float precioLatam,float aeroTD,float aeroTC,float aeroBTC,float aeroUni,float latamTD,float latamTC,float latamBTC,float latamUni,float dif)
+int opcion4(int flagCalculos,int km, float precioAero, float precioLatam,float aeroTD,float aeroTC,
+			float aeroBTC,float aeroUni,float latamTD,float latamTC,float latamBTC,float latamUni,float dif)
 {
     int retorno;
 
@@ -374,7 +410,6 @@ char confimar()
 {
     char respuesta;
 
-    system("cls");
     printf("Desea confirmar la cargar? s/n : ");
     fflush(stdin);
     scanf("%c", &respuesta);
@@ -402,8 +437,7 @@ char sobrescribir()
 {
     char respuesta;
 
-    system("cls");
-    printf("Ya hay un precio cargado\nDesea sobrescribirlo? s/n : ");
+    printf("Ya hay datos cargados\nDesea sobrescribirlo? s/n : ");
     fflush(stdin);
     scanf("%c", &respuesta);
 

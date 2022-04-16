@@ -45,10 +45,12 @@ int main(void) {
 	                opcion2(&precioAerolineas, &precioLatam, &flagAero, &flagLatam);
 	                break;
 	            case 3:
-	                opcion3(&flagCalculos, flagKm, flagLatam, flagAero, kilometros, precioAerolineas, precioLatam, &aeroTD, &aeroTC, &aeroBTC, &aeroUni, &latamTD, &latamTC, &latamBTC, &latamUni, &difAeroLatam);
+	                opcion3(&flagCalculos, flagKm, flagLatam, flagAero, kilometros, precioAerolineas,
+	                		precioLatam, &aeroTD, &aeroTC, &aeroBTC, &aeroUni, &latamTD, &latamTC, &latamBTC, &latamUni, &difAeroLatam);
 	                break;
 	            case 4:
-	                opcion4(flagCalculos, kilometros, precioAerolineas, precioLatam, aeroTD, aeroTC, aeroBTC, aeroUni, latamTD, latamTC, latamBTC, latamUni, difAeroLatam);
+	                opcion4(flagCalculos, kilometros, precioAerolineas, precioLatam, aeroTD, aeroTC, aeroBTC,
+	                		aeroUni, latamTD, latamTC, latamBTC, latamUni, difAeroLatam);
 	                if(flagCalculos == 1)
 	                {
 	                    reset(&kilometros, &precioAerolineas, &precioLatam, &flagKm, &flagLatam, &flagAero, &flagCalculos);
