@@ -8,14 +8,12 @@
 /** \brief Funcion que me muestra mi menu principal
  *
  * \param Km int cantidad de kilometros
- * \param flagKm int valor de bandera de kilometros
  * \param aero float precio del vuelo de aerolineas
  * \param latam float precio de vuelo de Latam
- * \param flagVuelos int valor de la bandera de vuelos;
  * \return int retorna la opcion elegida
  *
  */
-int menu(int Km, int flagKm,float aero, float latam, int flagAero, int flagLatam);
+int menu(int Km, float aero, float latam);
 //-----------------------------------------------------------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------------------------------------------------------//
 /** \brief Funcion de la opcion 1 donde pedimos que ingrese los kilometros

@@ -8,7 +8,7 @@ int main(void) {
 
 	setbuf(stdout,NULL);
 
-	int kilometros;
+		int kilometros = 0;
 
 	    float precioLatam = 0;
 	    float precioAerolineas = 0;
@@ -36,7 +36,7 @@ int main(void) {
 
 	    do
 	    {
-	        switch(menu(kilometros, flagKm, precioAerolineas, precioLatam, flagAero, flagLatam))
+	        switch(menu(kilometros, precioAerolineas, precioLatam))
 	        {
 	            case 1:
 	                opcion1(&kilometros, &flagKm);

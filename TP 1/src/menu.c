@@ -4,7 +4,7 @@
 #include "menu.h"
 #include "calculos.h"
 
-int menu(int Km, int flagKm,float aero, float latam, int flagAero, int flagLatam)
+int menu(int Km, float aero, float latam)
 {
     int opciones;
     int noNum;
@@ -18,23 +18,8 @@ int menu(int Km, int flagKm,float aero, float latam, int flagAero, int flagLatam
            "-----------------------------------------------------------\n"
            "-----------------------------------------------------------\n\n\n"
            "Opciones:\n\n");
-
-    if(flagKm == 0)
-    {
-        printf("1.Ingresar Kilometros: Km = x\n");
-    }
-    else
-    {
-        printf("1.Ingresar Kilometros: Km = %d\n", Km);
-    }
-    if(flagAero == 0 && flagLatam == 0)
-    {
-        printf("2.Ingresar Precio de vuelos: Aerolineas = y, Latam = z\n");
-    }
-    else
-    {
-        printf("2.Ingresar Precio de vuelos: Aerolineas = $%.2f, Latam = $%.2f\n", aero,latam);
-    }
+    printf("1.Ingresar Kilometros: Km = %d\n", Km);
+    printf("2.Ingresar Precio de vuelos: Aerolineas = $%.2f, Latam = $%.2f\n", aero,latam);
     printf("3.Calcular costos\n"
            "4.Informar Resultados\n"
            "5.Carga forzada de datos\n"
@@ -55,7 +40,7 @@ int opcion1(int* pKm, int* pFlag)
 {
     int kilometros;
     int respuesta;
-    int retorno = -1;
+    int retorno = 0;
 
     if(pKm != NULL && pFlag != NULL)
     {
@@ -84,7 +69,7 @@ int opcion1(int* pKm, int* pFlag)
         *pKm = kilometros;
         *pFlag = 1;
         getch();
-        retorno = 0;
+        retorno = 1;
     }
     return retorno;
 }
@@ -95,7 +80,7 @@ int opcion2(float* pPrecioAero, float* pPrecioLatam, int* pFlag, int* pFlag2)
     float precioLatam;
     char carga;
     int linea;
-    int retorno = -1;
+    int retorno = 0;
 
     empresa(&linea);
     if(pPrecioAero != NULL && pPrecioLatam != NULL && pFlag != NULL)
@@ -191,6 +176,7 @@ int opcion2(float* pPrecioAero, float* pPrecioLatam, int* pFlag, int* pFlag2)
                 getch();
             }
         }
+    retorno = 1;
     }
 
     return retorno;
@@ -329,7 +315,7 @@ int opcion4(int flagCalculos,int km, float precioAero, float precioLatam,float a
     else
     {
         system("cls");
-        printf("\nNo se realizaron los calculos todavia\n\n");
+        printf("Se deben realizar los calculos primero \n\n");
         retorno = 0;
         getch();
     }
