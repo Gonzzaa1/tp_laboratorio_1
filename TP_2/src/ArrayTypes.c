@@ -77,37 +77,3 @@ int valideType(TypePassenger* type, int len, int id)
     }
     return isOk;
 }
-int chooseType(int* id)
-{
-	int index;
-	int typeID;
-	int isOk = -1;
-
-	if(id != NULL)
-	{
-		TypePassenger types[4] =
-			{
-				{5000, "First Class"},
-				{5001, "Business Class"},
-				{5002, "Premium Class"},
-				{5003, "Economy Class"}
-			};
-		printType(types, 4);
-
-		printf("\nIngrese id: \n");
-		scanf("%d", &typeID);
-
-		searchType(types, 4, typeID, &index);
-
-		if(index == -1)
-		{
-			printf("\nNo existe un pasajero con ID: %d en el sistema\n", typeID);
-		}
-		else
-		{
-			*id = typeID;
-		}
-		isOk = 0;
-	}
-	return isOk;
-}

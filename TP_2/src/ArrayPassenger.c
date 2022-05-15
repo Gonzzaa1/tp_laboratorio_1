@@ -461,7 +461,7 @@ int listarPasajeros(Passenger* passenger, int len, TypePassenger* types, StatusF
 	}
 	return isOk;
 }
-int cargaForzada(Passenger vec[], int tam, int cant, int* pNextId,int* flag)
+int cargaForzada(Passenger passenger[], int len, int cant, int* pNextId,int* flag)
 {
     int isOk = 0;
     Passenger pasajeros[20] =
@@ -488,15 +488,15 @@ int cargaForzada(Passenger vec[], int tam, int cant, int* pNextId,int* flag)
       {0, "Martin", "Moreno", 250000, "UA520000", 5003, 3000, 0}
     };
 
-    if(vec != NULL && pNextId != NULL && tam > 0 && tam <= 2000 && cant <= tam)
+    if(passenger != NULL && pNextId != NULL && len > 0 && len <= 2000 && cant <= len)
     {
         for(int i=0; i < cant; i++)
         {
-			vec[i] = pasajeros[i];
-			vec[i].id = *pNextId;
+        	passenger[i] = pasajeros[i];
+        	passenger[i].id = *pNextId;
 			(*pNextId)++;
 
-			if(vec[i].isEmpty)
+			if(passenger[i].isEmpty)
 			{
 				break;
 			}

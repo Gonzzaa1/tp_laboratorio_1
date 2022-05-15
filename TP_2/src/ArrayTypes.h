@@ -47,4 +47,3 @@ int loadTypeDescription(TypePassenger* type, int len, int id, char description[]
  *
  */
 int valideType(TypePassenger* type, int len, int id);
-int chooseType(int* id);

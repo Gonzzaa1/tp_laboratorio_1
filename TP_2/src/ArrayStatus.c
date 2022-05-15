@@ -74,37 +74,3 @@ int valideStatus(StatusFlight* status, int len, int id)
 	}
 	return isOk;
 }
-int chooseStatus(int* id)
-{
-	int isOk = -1;
-	/*int index;
-	int statusID;
-
-	if(id != NULL)
-	{
-		StatusFlight status[4] =
-			{
-				{3000, "On time"},
-				{3001, "Arrival"},
-				{3002, "Delayed"},
-				{3003, "Cancelled"}
-			};
-		printType(status, 4);
-
-		printf("\nIngrese id: \n");
-		scanf("%d", &statusID);
-
-		searchType(status, 4, statusID, &index);
-
-		if(index == -1)
-		{
-			printf("\nNo existe un pasajero con ID: %d en el sistema\n", statusID);
-		}
-		else
-		{
-			*id = statusID;
-		}
-		isOk = 0;
-	}*/
-	return isOk;
-}

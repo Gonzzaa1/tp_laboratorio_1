@@ -48,4 +48,3 @@ int loadStatusDescription(StatusFlight* status, int len, int id, char descriptio
  *
  */
 int valideStatus(StatusFlight* status, int len, int id);
-int chooseStatus(int* id);
